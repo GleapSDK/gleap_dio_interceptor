@@ -1,0 +1,21 @@
+name: gleap_dio_interceptor
+description: A dio interceptor for Gleap
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  dio: ^4.0.3
+  flutter:
+    sdk: flutter
+  gleap_sdk: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
