@@ -2,7 +2,7 @@
 
 ![Gleap Flutter SDK Intro](https://raw.githubusercontent.com/GleapSDK/iOS-SDK/main/imgs/gleapheader.png)
 
-A dio interceptor for [Gleap](https://pub.dev/packages/gleap_sdk).
+A Dio Interceptor for the [Gleap SDK](https://pub.dev/packages/gleap_sdk).
 
 # Report and Fix Bugs the Easy Way
 
@@ -17,4 +17,11 @@ Checkout our [documentation](https://docs.gleap.io/docs/flutter-sdk) for full re
 ```dart
 dependencies:
   gleap_dio_interceptor: "^1.0.0"
+```
+
+```dart
+Dio dio = Dio();
+dio.interceptors.add(GleapDioInterceptor());
+
+dio.get("https://example.com");
 ```
