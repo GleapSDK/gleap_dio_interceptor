@@ -21,12 +21,12 @@ class GleapDioInterceptor extends Interceptor {
   void onResponse(
       Response<dynamic> response, ResponseInterceptorHandler handler) {
     final GleapNetworkLog gleapNetworkLog = GleapNetworkLog(
-      type: response.requestOptions.responseType.toString(),
+      type: response.requestOptions.method.toUpperCase(),
       url: response.realUri.toString(),
       date: DateTime.now(),
       request: GleapNetworkRequest(
         headers: response.headers.map,
-        payload: response.requestOptions.data.toString(),
+        payload: response.requestOptions.data,
       ),
       response: GleapNetworkResponse(
         status: response.statusCode,
@@ -42,17 +42,18 @@ class GleapDioInterceptor extends Interceptor {
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     final GleapNetworkLog gleapNetworkLog = GleapNetworkLog(
-      type: err.type.toString(),
+      type: err.requestOptions.method.toUpperCase(),
       url: err.requestOptions.path,
       date: DateTime.now(),
       request: GleapNetworkRequest(
         headers: err.requestOptions.headers,
-        payload: err.requestOptions.data.toString(),
+        payload: err.requestOptions.data,
       ),
       response: GleapNetworkResponse(
         status: err.response?.statusCode,
         statusText: err.response?.statusMessage,
-        responseText: NetworkResponseTypeHelper.getType(data: err.response?.data),
+        responseText:
+            NetworkResponseTypeHelper.getType(data: err.response?.data),
       ),
     );
 
