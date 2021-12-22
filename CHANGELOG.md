@@ -1,3 +1,4 @@
+## 1.0.8 - Updated Gleap SDK
 ## 1.0.7 - Updated Gleap SDK
 ## 1.0.6 - Updated Gleap SDK
 ## 1.0.5 - Updated Gleap SDK
