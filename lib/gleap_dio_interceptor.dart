@@ -21,19 +21,62 @@ class GleapDioInterceptor extends Interceptor {
   void onResponse(
       Response<dynamic> response, ResponseInterceptorHandler handler) {
     final GleapNetworkLog gleapNetworkLog = GleapNetworkLog(
-      type: response.requestOptions.method.toUpperCase(),
-      url: response.realUri.toString(),
+      type: () {
+        try {
+          return response.requestOptions.method.toUpperCase();
+        } catch (_) {
+          return null;
+        }
+      }(),
+      url: () {
+        try {
+          return response.realUri.toString();
+        } catch (_) {
+          return null;
+        }
+      }(),
       date: DateTime.now(),
       request: GleapNetworkRequest(
-        headers: response.headers.map,
-        payload: response.requestOptions.data,
+        headers: () {
+          try {
+            return response.headers.map;
+          } catch (_) {
+            return null;
+          }
+        }(),
+        payload: () {
+          try {
+            return response.requestOptions.data;
+          } catch (_) {
+            return '';
+          }
+        }(),
       ),
       response: GleapNetworkResponse(
-        status: response.statusCode,
-        statusText: response.statusMessage,
-        responseText: NetworkResponseTypeHelper.getType(data: response.data),
+        status: () {
+          try {
+            return response.statusCode;
+          } catch (_) {
+            return null;
+          }
+        }(),
+        statusText: () {
+          try {
+            return response.statusMessage;
+          } catch (_) {
+            return null;
+          }
+        }(),
+        responseText: () {
+          try {
+            return NetworkResponseTypeHelper.getType(data: response.data);
+          } catch (_) {
+            return null;
+          }
+        }(),
       ),
     );
+
     networkLogs.add(gleapNetworkLog);
 
     handler.next(response);
@@ -42,18 +85,59 @@ class GleapDioInterceptor extends Interceptor {
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     final GleapNetworkLog gleapNetworkLog = GleapNetworkLog(
-      type: err.requestOptions.method.toUpperCase(),
-      url: err.requestOptions.path,
+      type: () {
+        try {
+          return err.requestOptions.method.toUpperCase();
+        } catch (_) {
+          return null;
+        }
+      }(),
+      url: () {
+        try {
+          return err.requestOptions.path;
+        } catch (_) {
+          return null;
+        }
+      }(),
       date: DateTime.now(),
       request: GleapNetworkRequest(
-        headers: err.requestOptions.headers,
-        payload: err.requestOptions.data,
+        headers: () {
+          try {
+            return err.requestOptions.headers;
+          } catch (_) {
+            return null;
+          }
+        }(),
+        payload: () {
+          try {
+            return err.requestOptions.data;
+          } catch (_) {
+            return '';
+          }
+        }(),
       ),
       response: GleapNetworkResponse(
-        status: err.response?.statusCode,
-        statusText: err.response?.statusMessage,
-        responseText:
-            NetworkResponseTypeHelper.getType(data: err.response?.data),
+        status: () {
+          try {
+            return err.response?.statusCode;
+          } catch (_) {
+            return null;
+          }
+        }(),
+        statusText: () {
+          try {
+            return err.response?.statusMessage;
+          } catch (_) {
+            return null;
+          }
+        }(),
+        responseText: () {
+          try {
+            return NetworkResponseTypeHelper.getType(data: err.response?.data);
+          } catch (_) {
+            return null;
+          }
+        }(),
       ),
     );
 

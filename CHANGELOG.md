@@ -1,3 +1,4 @@
+## 1.1.1 - Improved GleapNetworkLog serialization
 ## 1.1.0 - Added minimum Gleap SDK version
 ## 1.0.9 - Updated Gleap SDK
 ## 1.0.8 - Updated Gleap SDK

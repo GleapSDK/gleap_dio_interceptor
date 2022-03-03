@@ -1,6 +1,6 @@
 name: gleap_dio_interceptor
 description: A Dio Interceptor for Gleap
-version: 1.1.0
+version: 1.1.1
 homepage: https://gleap.io
 
 environment:
