@@ -39,7 +39,7 @@ class GleapDioInterceptor extends Interceptor {
       request: GleapNetworkRequest(
         headers: () {
           try {
-            return response.headers.map;
+            return _prepareMap(map: response.requestOptions.headers);
           } catch (_) {
             return null;
           }
@@ -103,7 +103,7 @@ class GleapDioInterceptor extends Interceptor {
       request: GleapNetworkRequest(
         headers: () {
           try {
-            return err.requestOptions.headers;
+            return _prepareMap(map: err.requestOptions.headers);
           } catch (_) {
             return null;
           }
@@ -144,5 +144,26 @@ class GleapDioInterceptor extends Interceptor {
     networkLogs.add(gleapNetworkLog);
 
     handler.next(err);
+  }
+
+  Map<String, dynamic>? _prepareMap({Map<String, dynamic>? map}) {
+    if (map == null) {
+      return null;
+    }
+
+    Map<String, dynamic> preparedMap = <String, dynamic>{};
+    List<String> mapKeys = map.keys.toList();
+
+    for (int i = 0; i < mapKeys.length; i++) {
+      dynamic mapKey = mapKeys[i];
+
+      if (map[mapKey] is Map) {
+        preparedMap[mapKey] = _prepareMap(map: map[mapKey]);
+      } else {
+        preparedMap[mapKey] = map[mapKey].toString();
+      }
+    }
+
+    return preparedMap;
   }
 }
