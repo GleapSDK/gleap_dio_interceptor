@@ -1,3 +1,4 @@
+## 1.1.2 - Fixed bug with unkown instance serialization
 ## 1.1.1 - Improved GleapNetworkLog serialization
 ## 1.1.0 - Added minimum Gleap SDK version
 ## 1.0.9 - Updated Gleap SDK
