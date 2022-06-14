@@ -11,15 +11,6 @@ import 'package:gleap_sdk/models/ring_buffer_model/ring_buffer_model.dart';
 class GleapDioInterceptor extends Interceptor {
   RingBuffer<GleapNetworkLog> networkLogs = RingBuffer<GleapNetworkLog>(20);
 
-  GleapDioInterceptor() {
-    Gleap.registerListener(
-      actionName: 'feedbackFlowStarted',
-      callbackHandler: (_) {
-        Gleap.attachNetworkLogs(networkLogs: networkLogs.toList());
-      },
-    );
-  }
-
   @override
   void onResponse(
       Response<dynamic> response, ResponseInterceptorHandler handler) {
@@ -80,7 +71,7 @@ class GleapDioInterceptor extends Interceptor {
       ),
     );
 
-    networkLogs.add(gleapNetworkLog);
+    _updateNetworkLogs(gleapNetworkLog);
 
     handler.next(response);
   }
@@ -144,7 +135,7 @@ class GleapDioInterceptor extends Interceptor {
       ),
     );
 
-    networkLogs.add(gleapNetworkLog);
+    _updateNetworkLogs(gleapNetworkLog);
 
     handler.next(err);
   }
@@ -168,5 +159,11 @@ class GleapDioInterceptor extends Interceptor {
     }
 
     return preparedMap;
+  }
+
+  void _updateNetworkLogs(GleapNetworkLog gleapNetworkLog) {
+    networkLogs.add(gleapNetworkLog);
+
+    Gleap.attachNetworkLogs(networkLogs: networkLogs.toList());
   }
 }
