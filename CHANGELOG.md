@@ -1,3 +1,4 @@
+## 1.2.1 - Flutter v2 support
 ## 1.2.0 - Support Gleap widget v7
 ## 1.1.2 - Fixed bug with unkown instance serialization
 ## 1.1.1 - Improved GleapNetworkLog serialization
