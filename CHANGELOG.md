@@ -1,3 +1,4 @@
+## 1.2.0 - Support Gleap widget v7
 ## 1.1.2 - Fixed bug with unkown instance serialization
 ## 1.1.1 - Improved GleapNetworkLog serialization
 ## 1.1.0 - Added minimum Gleap SDK version
