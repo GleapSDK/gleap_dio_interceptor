@@ -11,7 +11,10 @@ dependencies:
   dio: ^4.0.3
   flutter:
     sdk: flutter
-  gleap_sdk: '>=6.4.4'
+  gleap_sdk:
+    git:
+      url: git@github.com:GleapSDK/Flutter-SDK.git
+      ref: flutter-v2
 
 dev_dependencies:
   flutter_test:
