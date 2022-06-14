@@ -27,7 +27,7 @@ If you are using Flutter < v3, please import the gleap_sdk as shown below:
 dependencies:
   gleap_dio_interceptor:
     git:
-      url: git@github.com:GleapSDK/gleap_dio_interceptor.git
+      url: https://github.com/GleapSDK/gleap_dio_interceptor.git
       ref: flutter-v2
 
 ```
