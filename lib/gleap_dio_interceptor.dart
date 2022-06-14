@@ -12,9 +12,12 @@ class GleapDioInterceptor extends Interceptor {
   RingBuffer<GleapNetworkLog> networkLogs = RingBuffer<GleapNetworkLog>(20);
 
   GleapDioInterceptor() {
-    Gleap.setFeedbackWillBeSentCallback(callbackHandler: () {
-      Gleap.attachNetworkLogs(networkLogs: networkLogs.toList());
-    });
+    Gleap.registerListener(
+      actionName: 'feedbackFlowStarted',
+      callbackHandler: (_) {
+        Gleap.attachNetworkLogs(networkLogs: networkLogs.toList());
+      },
+    );
   }
 
   @override

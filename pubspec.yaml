@@ -11,7 +11,7 @@ dependencies:
   dio: ^4.0.3
   flutter:
     sdk: flutter
-  gleap_sdk: '>=6.3.7'
+  gleap_sdk: '>=6.4.4'
 
 dev_dependencies:
   flutter_test:
