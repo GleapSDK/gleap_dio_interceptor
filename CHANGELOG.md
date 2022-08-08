@@ -1,3 +1,4 @@
+## 1.2.4. - Added success properties
 ## 1.2.3 - Updated readme
 ## 1.2.2 - Made network logs working for silent crash reports
 ## 1.2.1 - Flutter v2 support
