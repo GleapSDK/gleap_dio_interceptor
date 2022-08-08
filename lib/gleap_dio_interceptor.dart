@@ -69,6 +69,7 @@ class GleapDioInterceptor extends Interceptor {
           }
         }(),
       ),
+      success: true,
     );
 
     _updateNetworkLogs(gleapNetworkLog);
@@ -133,6 +134,7 @@ class GleapDioInterceptor extends Interceptor {
           }
         }(),
       ),
+      success: false,
     );
 
     _updateNetworkLogs(gleapNetworkLog);
