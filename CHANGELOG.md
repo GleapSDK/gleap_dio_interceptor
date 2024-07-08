@@ -1,3 +1,6 @@
+## 1.2.6
+Updated the Flutter sdk to support a wider range of versions 
+
 ## 1.2.5
 Updated dio version
 
