@@ -1,7 +1,7 @@
 name: gleap_dio_interceptor
-description: A Dio Interceptor for Gleap
+description: "Gleap Flutter Dio interceptor for network logs in customer feedback and in-app bug reports."
 version: 1.2.6
-homepage: https://gleap.io
+homepage: https://www.gleap.ai
 
 environment:
   sdk: ">=2.12.0 <4.0.0"
