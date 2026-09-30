@@ -28,7 +28,7 @@ dependencies:
 
 ```
 
-Version 2.0 requires `gleap_sdk` 18.2.0 or newer and `dio` 5.2.0 or newer.
+Version 2.0 requires `gleap_sdk` 19.0.0 or newer and `dio` 5.2.0 or newer.
 
 ```dart
 Dio dio = Dio();
