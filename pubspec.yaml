@@ -1,17 +1,17 @@
 name: gleap_dio_interceptor
 description: "Gleap Flutter Dio interceptor for network logs in customer feedback and in-app bug reports."
-version: 1.2.6
+version: 2.0.0
 homepage: https://www.gleap.ai
 
 environment:
-  sdk: ">=2.12.0 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
 
 dependencies:
-  dio: '>=4.0.3'
+  dio: '>=5.2.0 <6.0.0'
   flutter:
     sdk: flutter
-  gleap_sdk: '>=6.4.4'
+  gleap_sdk: ^19.0.0
 
 dev_dependencies:
   flutter_test:
